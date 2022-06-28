@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block baner %}{% endblock %}
+
+{% block content %}
+<div class="content">
+    <p>Dziękujemy za zakup.</p>
+    <p>Numer twojego zamówienie to {{order.id}}</p>
+    <a href="{% url 'base' %}" ><u>Strona główna</u></a>
+</div>
+
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block baner %}{% endblock %}
+
+{% block content %}
+<div class="content">
+    {{koszyk.10.price}}
+    {% for item in koszyk %}
+    {% with product=item.product %}
+    <div>
+        <div class="bucketProductFoto"><img src="{{ product.Photo.url }}" alt="Image" class="productImage"></div>
+        <div class="bucketProductDescription"> Produkt: {{product.Name}} <br> Ilość zamówiona: {{item.quantity}} <br> Cena: {{item.price |floatformat:2}} zł <br> Razem: {{item.totalprice|floatformat:2}} zł <br>
+            Dostępna ilość na magazynie: {{product.Quantity}}            
+            {% if item.quantity > product.Quantity %}
+            
+            <br>
+            <p style="color: red;">Ilość jaką chcesz zamówić jest większa niż dostępna na magazynie!!</p>
+        
+            {% endif %}
+
+        </div>
+       
+        <form action="{% url 'remove' product.id %}"method='post' style="float: left; margin-left: 10vh; margin-top: 5vh;">
+            {% csrf_token %}
+            <input type="submit" value="usuń produkt">
+        </form>
+    </div><br>
+    
+    <div style="clear: both;"></div>
+    <hr>
+    {% endwith %}
+    {% endfor %}
+    {% if status == 2 %}
+    <h3>Koszyk jest pusty</h3>
+    {% else %}
+    <p>Wartość zamówienia: {{totalPrice | floatformat:2}} zł</p>
+    <form action="{% url 'clean' %}"method='post'>
+        {% csrf_token %}
+        <input type="submit" value="wyczyść koszyk">
+        
+    </form>
+    {% endif %}
+    {% if status == 0 %}
+    <form action="{% url 'create_customer' %}">
+        {% csrf_token %}
+        <input type="submit" value="zrealizuj zamówienie">
+    </form>
+    {% endif %}
+    
+</div>
+
+{% endblock %}

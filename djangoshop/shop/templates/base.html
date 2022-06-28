@@ -1,0 +1,73 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style.css' %}"/>
+    <title>{% block title %} Django shop{% endblock %}</title>
+</head>
+<body>
+<div id="container">
+    <header id="head">
+        <div class="content"> 
+            <a href="{% url 'base' %}"><div class="menu" style="float: left;">SZTUKA NICI</div></a>
+            <a href="{% url 'koszyk' %}"><div class="menu">Koszyk</div></a>
+            <a href="{% url 'o_nas' %}"><div class="menu">O nas</div></a>
+            <a href="{% url 'kontakt' %}"><div class="menu">Kontakt</div></a>
+            <form action="/" method="get">
+                {{myFilter.form}}
+            </form>
+
+            <div style="clear: both;"></div>
+        </div>
+    </header>
+    <hr>
+
+    {% block baner %}
+    <div class="content">
+        <div id="kategorie"><h3>Kategorie</h3>
+        {% for category in categories %}
+            <a href="{% url 'filtr' category.Name %}"><h5>{{category.Name}}</h5></a>
+        {% endfor %}
+        </div>
+        <div id="foto">
+            <img class="baner" src="{% static 'kurczak.png' %}" />
+            <img class="baner" src="{% static 'sztuka nici.png'%}" />
+            <img class="baner" src="{% static 'zając.png' %}" />
+        </div>
+        <hr>
+    </div>
+    {% endblock %}
+
+    {% block content %}
+    <div class="content">
+        <div id="productcontainer">
+            {% for product in products %}
+            {% if product.Quantity == 0 %}
+
+            {% else %}
+            <div class="product">
+                <a href="{% url 'product' product.id %}">
+                    <div class="productDivPhoto"><img class="productImage" src="{{ product.Photo.url }}"></div>
+                    <div class="productName">{{ product.Name|truncatechars:9 }}</div></a>
+                    <div class="productPrice"> {{product.Price}} zł</div>
+            
+                
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    
+    {% endblock %}
+</div>
+    
+
+        <footer id="footer">
+                <p>&copy; Krzesimir Makowski</p>
+            
+        </footer>
+</body>
+</html>

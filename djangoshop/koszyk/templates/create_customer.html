@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block baner %}
+{% endblock %}
+{% block content %}
+<div class="content">
+    <p>Dane do wysyłki i złożenie zamówienia</p>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{form}}
+        <input type="submit" value="Zatwierdź">
+    </form>
+    <br>
+    <hr>
+    <p>zamówienie</p>
+    <p>Wartość: {{totalPrice | floatformat:2}} zł</p>
+    <hr>
+    {% for item in koszyk %}
+    {% with product=item.product %}
+    <div>
+        <div class="bucketProductFoto"><img src="{{ product.Photo.url }}" alt="Image" class="productImage"></div>
+        <div class="bucketProductDescription"> Produkt: {{product.Name}} <br> Ilość zamówiona: {{item.quantity}} <br> Cena: {{item.price |floatformat:2}} zł <br> Razem: {{item.totalprice|floatformat:2}} zł        </div>
+    </div><br>
+    
+    <div style="clear: both;"></div>
+    <hr>
+    {% endwith %}
+    {% endfor %}
+{% endblock %}

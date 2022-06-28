@@ -1,0 +1,180 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    font: 18px 'Open-sans',Arial;
+    background-color: rgb(250, 250, 250);
+    display: flex;
+    flex-direction: column;
+}
+
+#container{
+    min-height: 85vh;
+    height: 85vh;
+}
+
+#footer{
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    text-align: center;
+    align-items: center;
+    height: 10vh;
+    min-height: 10vh;
+    
+}
+
+a{
+    color: black;
+    text-decoration: none;
+}
+a :hover{
+    border-radius: 5px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+}
+p{
+    text-align: center;
+}
+input{
+    background-color: rgb(206, 206, 206);
+    margin: 1em;
+    border: 2px lightgray solid;
+    cursor: pointer;
+    padding: 0.5em;
+    border-radius: 3px;
+
+}
+input :hover{
+    box-shadow: 5px 5px 5px black;
+}
+
+
+.content{
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    text-align: center;
+
+}
+
+
+
+#head{
+    text-align: center;
+}
+.menu{
+    color:black;
+    padding-left: 2em;
+    padding-right: 2em;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    float: right;
+}
+
+
+#kategorie{
+    margin-right: 0.5em;
+    font-size: medium;
+    padding: 0.5em;
+    float: left;
+    width: 22vh;
+    border: 0.5px solid rgb(184, 184, 184);
+    border-radius: 4px;
+}
+#foto{
+    margin-top: 0.5em;
+    text-align: center;
+    margin-bottom:  0.5em;
+}
+.baner{
+    width:  30vh;
+    height: 30vh;
+    border: 1px solid gray;
+    border-radius: 10px;
+}
+
+#productcontainer{
+    width: 83%;
+    float: right;
+    height: 100%;
+}
+
+
+.product{
+    float:left;
+    margin: 0.3em;
+    height: 10%;
+    width: 22vh;
+    border: 2px solid gray;
+    border-radius: 10px;
+}
+
+.productName{
+    margin-left: auto;margin-right: auto;
+    font-size: larger;
+    margin-top: 0.5em;
+    margin-bottom: 0.6em;
+    width: 90%;
+}
+.productDivPhoto{
+    margin-top: 0.5em;
+    height: 15vh;
+    width: 15vh;
+    text-align: center;
+    margin-right: auto;margin-left: auto;
+}
+.productImage{
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    border: 2px solid lightgrey;
+}
+.productPrice{
+    margin-top: 1em;
+    margin-left: 2vh;
+    margin-bottom: 2vh;
+    float: left;
+}
+
+
+
+.simpleproductImage{
+    float: left;
+    border: 2px solid gray;
+    border-radius: 10px;
+    width: 50vh;
+    height: 50vh;
+    margin-top: 2em;margin-left: 2em;margin-right: 2em;
+}
+#simpleproductinfo{
+    float:left;
+    border: 2px solid gray;
+    border-radius: 10px;
+    padding: 0.7em;
+    margin-top: 2em;margin-left: 2em;margin-right: 2em;
+    width: 70vh;
+}
+
+
+
+
+.bucketProductFoto{
+    width: 20vh;
+    height: 20vh;
+    margin-left: 20vh;
+    float: left;
+}
+.bucketProductDescription{
+    float: left;
+    width: 50vh;
+    height:auto;
+    margin-left:20vh;
+    border: 2px solid gray;
+    border-radius: 10px;
+    margin-top: 5vh;
+}

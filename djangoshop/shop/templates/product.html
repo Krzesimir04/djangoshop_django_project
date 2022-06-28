@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}product{% endblock %}
+
+{% block baner %}
+
+<div class="content">
+    <div id="kategorie"><h3>Kategorie</h3>
+    {% for category in categories %}
+        <a href="{% url 'filtr' category.Name %}"><h5>{{category.Name}}</h5></a>
+    {% endfor %}
+    </div>
+</div>
+{% endblock %}
+{% block content %}
+
+{% for data in product %}
+<img class="simpleproductImage" src="{{ data.Photo.url }}">
+<div style="float: left;max-width: 71vh;">
+    
+        <div style="margin-left: auto;margin-right: auto;">
+            <div id="simpleproductinfo">
+                {{ data.Name }}<br>
+                Cena: {{ data.Price }} zł<br>
+                Ilość sztuk w magazynie: {{ data.Quantity }}<br><br>
+                <div id="simpleproductDescription">Opis: {{ data.Description }} </div>
+            </div>
+            <div class="form" style="margin-left: 2em;">
+              <form action="{% url 'add' data.id %}" method="post">
+                  {% csrf_token %}
+                  {{ AddProductForm }}
+                  <input type="submit" value="Dodaj do koszyka">
+              </form>
+            </div>
+        </div>
+        
+        
+        
+    
+</div>
+    
+        
+    
+    {% endfor %}
+
+{% endblock %}
