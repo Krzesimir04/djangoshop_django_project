@@ -9,3 +9,14 @@ class CustomerForm(forms.ModelForm):
     class Meta:
         model=Customer
         fields='__all__'
+
+    def clean_Address(self):
+        data=self.cleaned_data.get('Address')
+        if len(data) <= 5:
+            raise forms.ValidationError('Za krótki adres')
+        return data
+    def clean_Tel(self):
+        data=self.cleaned_data.get('Tel')
+        if len(str(data)) < 9:
+            raise forms.ValidationError('Za krótki numer telefonu')
+        return data

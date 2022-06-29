@@ -178,3 +178,17 @@ input :hover{
     border-radius: 10px;
     margin-top: 5vh;
 }
+.form_field{
+    background-color: rgb(238, 238, 238);
+    margin: 2em;
+    border: 2px lightgray solid;
+    cursor: pointer;
+    padding: 0.5em;
+    border-radius: 3px;
+    float: left;
+
+}
+.error{
+    color: red;
+    text-align: center;
+}

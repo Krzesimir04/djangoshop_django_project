@@ -4,11 +4,23 @@
 {% block content %}
 <div class="content">
     <p>Dane do wysyłki i złożenie zamówienia</p>
+    <hr>
     <form action="" method="post">
         {% csrf_token %}
-        {{form}}
+        {% for error in form.Address.errors %}
+        <p class="error">{{ error }}</p>
+        {% endfor %}
+        {% for error in form.Tel.errors %}
+        <p class="error">{{ error }}</p>
+        {% endfor %}
+        {% for field in form %}
+        <p class="form_field">{{field.label}}: {{field}}</p>
+        {% endfor %}
+        <div style="clear: both;"></div>
+
         <input type="submit" value="Zatwierdź">
     </form>
+    <div style="clear: both;"></div>
     <br>
     <hr>
     <p>zamówienie</p>
