@@ -28,7 +28,7 @@ def show(request):
     totalPrice=0
     for item in koszyk:
         totalPrice+=float(item['price'])*int(item['quantity'])
-        print(totalPrice)
+        
         if item['quantity'] > item['product'].Quantity:
             status=1
     if request.session['produkty']=={}:

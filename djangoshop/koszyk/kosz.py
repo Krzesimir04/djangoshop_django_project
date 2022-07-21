@@ -9,8 +9,8 @@ class Koszyk():
         self.koszykLength=len(self.koszyk.values())
 
     def __iter__(self):
-        prosucts_ids=self.koszyk.keys()
-        products=Product.objects.filter(id__in=prosucts_ids)
+        products_ids=self.koszyk.keys()
+        products=Product.objects.filter(id__in=products_ids)
         koszyk=self.koszyk.copy()
         for product in products:
             koszyk[str(product.id)]['product']=product
