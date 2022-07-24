@@ -11,3 +11,9 @@ pip install -r requirements.txt
 cd djangoshop/
 
 python manage.py runserver
+
+Superuser info:
+
+username: admin
+
+password: admin
